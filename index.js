@@ -158,11 +158,11 @@ function processContains(item, list, callback) {
 */
 function processDuplicateFree(list, callback) {
   let uniques = [];
-  for (let i=0; i<list.length; i++) {
-    if (!uniques.includes(list[i])) {
-        uniques.push(list[i]);
+  list.forEach(function(item) {
+    if (!uniques.includes(item)) {
+        uniques.push(item);
     }
-  }
+  });
   return callback(uniques);
 }
 
@@ -184,8 +184,12 @@ function processDuplicateFree(list, callback) {
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(/* CODE HERE */) {
-  /* CODE HERE */
+function getFullNames(runners) {
+  let fullNames = [];
+  runners.forEach(function(item) {
+    fullNames.push(`${item.last_name}, ${item.first_name}`);
+  });
+  return fullNames;
 }
 
 /**
