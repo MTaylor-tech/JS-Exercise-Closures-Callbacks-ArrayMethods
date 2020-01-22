@@ -157,12 +157,7 @@ function processContains(item, list, callback) {
  * should return 3.
 */
 function processDuplicateFree(list, callback) {
-  let uniques = [];
-  list.map(item => {
-    if (!uniques.includes(item)) {
-        uniques.push(item);
-    }
-  });
+  let uniques = list.filter((item,index) => list.indexOf(item)===index);
   return callback(uniques);
 }
 
